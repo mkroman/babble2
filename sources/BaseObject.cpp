@@ -1,11 +1,7 @@
 #include "BaseObject.hpp"
 
-BaseObject::BaseObject()
+void BaseObject::setPosition(float x, float y)
 {
-
-}
-
-BaseObject::~BaseObject()
-{
-	
+	m_position.x = x;
+	m_position.y = y;	
 }

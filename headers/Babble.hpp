@@ -1,9 +1,17 @@
 #ifndef __BABBLE_HPP
 #define __BABBLE_HPP
 #include <cstdarg>
+#include <cstring>
+#include <cstdio>
+#include <cstdlib>
 
 static const int kGameWidth  = 720;
 static const int kGameHeight = 420;
+
+struct Vector {
+	float x;
+	float y;
+};
 
 static int __pretty_print(const char* function, const char* format, ...)
 {
