@@ -14,9 +14,8 @@ public:
 		return m_position;
 	}
 
-	virtual void setPosition(float x, float y);
-	
 	virtual void paint(SDL_Surface* const surface) {};
+	virtual void setPosition(float x, float y);
 
 protected:
 	Vector m_position;

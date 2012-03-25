@@ -8,6 +8,7 @@ set(BABBLE_SOURCES
 	sources/BaseObject.cpp
 	sources/Application.cpp
 	sources/VisualObject.cpp
+	sources/PlayerObject.cpp
 )
 
 find_package(SDL)

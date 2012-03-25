@@ -3,8 +3,8 @@
 VisualObject::VisualObject(const std::string& image_path)
 	: m_imageAsset(NULL)
 {
-	m_position.x = 10;
-	m_position.y = 10;
+	m_position.x = 0;
+	m_position.y = 0;
 
 	loadImageAsset(image_path);
 }

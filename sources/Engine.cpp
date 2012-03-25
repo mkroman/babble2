@@ -5,41 +5,26 @@
 Engine::Engine()
 	: m_running(false)
 {
-	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 		_debug("Failed to initialize everything in SDL");
 	}
+
+	SDL_WM_SetCaption("Babble", NULL);
+
+	createSurface();
 }
 
 Engine::~Engine()
 {
-	if (m_surface != NULL) {
-		SDL_FreeSurface(m_surface);
-	}
-
-	delete m_player;
-
 	// Release each individual object from memory.
 	ObjectDeque::iterator it;
 
 	for (it = m_objects.begin(); it != m_objects.end(); it++)
-	{
+ 	{
 		delete *it;
 	}
-}
 
-void Engine::initiate()
-{
-	createSurface();
-
-	SDL_WM_SetCaption("Babble", NULL);
-
-	m_player = new VisualObject("root.gif");
-
-	m_objects.push_back(m_player);
-	m_objects.push_back(new BaseObject());
-	m_objects.push_back(new BaseObject());
-
-	repaint();
+	SDL_Quit();
 }
 
 void Engine::createSurface()
@@ -61,9 +46,11 @@ void Engine::run()
 {
 	SDL_Event event;
 
+	_debug("Starting engine");
+
 	m_running = true;
 
-	_debug("Starting engine");
+	repaint();
 
 	while (m_running && SDL_WaitEvent(&event))
 	{
@@ -180,12 +167,15 @@ void Engine::repaint()
 
 void Engine::handleMouseButtonClick(SDL_MouseButtonEvent* event)
 {
-	m_player->setPosition(event->x, event->y);
-
 	repaint();
 }
 
 void Engine::handleMouseButtonRelease(SDL_MouseButtonEvent* event)
 {
-	
+	repaint();	
+}
+
+void Engine::addObject(BaseObject* object)
+{
+	m_objects.push_back(object);
 }

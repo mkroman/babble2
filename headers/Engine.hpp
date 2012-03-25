@@ -18,7 +18,7 @@ public:
 	void run();
 	void stop();
 	void repaint();
-	void initiate();
+	void addObject(BaseObject* object);
 
 private:
 	typedef std::deque<BaseObject*> ObjectDeque;
@@ -27,8 +27,6 @@ private:
 
 	void handleMouseButtonClick(SDL_MouseButtonEvent* event);
 	void handleMouseButtonRelease(SDL_MouseButtonEvent* event);
-
-	VisualObject* m_player;
 
 	bool         m_running;
 	ObjectDeque  m_objects;
