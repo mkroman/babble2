@@ -1,9 +1,8 @@
 #include "Application.hpp"
-#include "PlayerObject.hpp"
 
 Application::Application()
+	: m_engine(this)
 {
-
 }
 
 Application::~Application()

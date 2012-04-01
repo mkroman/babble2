@@ -1,8 +1,9 @@
 #ifndef __APPLICATION_HPP
 #define __APPLICATION_HPP
 #include "Engine.hpp"
+#include "EventHandler.hpp"
 
-class Application
+class Application : public EventHandler
 {
 public:
 	Application();

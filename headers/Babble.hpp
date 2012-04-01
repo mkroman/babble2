@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 
+static const int kGameFPS    = 20;
 static const int kGameWidth  = 720;
 static const int kGameHeight = 420;
 

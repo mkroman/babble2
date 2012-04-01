@@ -3,12 +3,11 @@ cmake_minimum_required(VERSION 2.6)
 set(CMAKE_BUILD_TYPE Debug)
 
 set(BABBLE_SOURCES
+	sources/Timer.cpp
 	sources/Babble.cpp
 	sources/Engine.cpp
-	sources/BaseObject.cpp
 	sources/Application.cpp
-	sources/VisualObject.cpp
-	sources/PlayerObject.cpp
+	sources/EventHandler.cpp
 )
 
 find_package(SDL)
