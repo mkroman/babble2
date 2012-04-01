@@ -6,10 +6,11 @@
 class Application : public EventHandler
 {
 public:
-	Application();
+	Application(int argc, char* argv[]);
 	~Application();
 
-	void run(int argc, char* argv[]);
+	void run();
+	void onExit();
 
 private:
 	Engine m_engine;
