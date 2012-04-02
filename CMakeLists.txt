@@ -6,6 +6,7 @@ set(BABBLE_SOURCES
 	sources/Timer.cpp
 	sources/Babble.cpp
 	sources/Engine.cpp
+	sources/Object.cpp
 	sources/Application.cpp
 	sources/EventHandler.cpp
 )

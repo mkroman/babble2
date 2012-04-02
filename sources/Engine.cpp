@@ -5,11 +5,11 @@
 Engine::Engine(EventHandler* receiver)
 	: m_receiver(receiver), m_state(EngineStopped)
 {
-	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
 		_debug("Failed to initialize everything in SDL");
 	}
 
-	SDL_WM_SetCaption("Babble", NULL);
+	SDL_WM_SetCaption("Babble 1.0", NULL);
 
 	createSurface();
 }
