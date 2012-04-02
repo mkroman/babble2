@@ -14,6 +14,8 @@ struct Vector {
 	float y;
 };
 
+typedef struct Vector Position;
+
 static int __pretty_print(const char* function, const char* format, ...)
 {
 	int     result;

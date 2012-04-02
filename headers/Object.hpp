@@ -1,13 +1,8 @@
 #pragma once
 #include <stdint.h>
+#include "Babble.hpp"
 
 struct SDL_Surface;
-
-struct Position
-{
-	int x;
-	int y;
-};
 
 class Object
 {
