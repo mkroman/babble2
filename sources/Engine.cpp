@@ -245,9 +245,21 @@ void Engine::stop()
 
 void Engine::repaint()
 {
+	ObjectVector::iterator it;
+
 	// Clean the surface.
 	SDL_Rect blank = { 0, 0, m_surface->w, m_surface->h };
 	SDL_FillRect(m_surface, &blank, 0);
 
+	for (it = m_objects.begin(); it != m_objects.end(); it++) {
+		(*it).update(2);
+		(*it).paint(m_surface);
+	}
+
 	SDL_Flip(m_surface);
+}
+
+void Engine::addObject(const Object& object)
+{
+	m_objects.push_back(object);
 }

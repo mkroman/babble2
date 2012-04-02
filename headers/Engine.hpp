@@ -1,11 +1,12 @@
 #ifndef __ENGINE_HPP
 #define __ENGINE_HPP
-#include <deque>
 #include <stdint.h>
-#include <iostream>
 #include <SDL/SDL.h>
+#include <vector>
+#include <iostream>
 
 #include "Babble.hpp"
+#include "Object.hpp"
 
 class EventHandler;
 
@@ -18,6 +19,8 @@ enum EngineState
 class Engine
 {
 public:
+	typedef std::vector<Object> ObjectVector;
+
 	Engine(EventHandler* receiver);
 	~Engine();
 
@@ -26,6 +29,8 @@ public:
 	void repaint();
 
 	void onEvent(SDL_Event* event);
+
+	void addObject(const Object& object);
 
 private:
 	void createSurface();
@@ -49,6 +54,8 @@ private:
 	 * \b The surface for drawing the game.
 	 */
 	SDL_Surface* m_surface;
+
+	ObjectVector m_objects;
 
 	/*!
 	 * Pointer reference to the application receiving and dealing with user input.
