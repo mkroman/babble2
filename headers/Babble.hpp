@@ -6,8 +6,8 @@
 #include <cstdlib>
 
 static const int kGameFPS    = 20;
-static const int kGameWidth  = 720;
-static const int kGameHeight = 420;
+static const int kGameWidth  = 1280;
+static const int kGameHeight = 720;
 
 struct Vector {
 	float x;

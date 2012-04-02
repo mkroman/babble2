@@ -4,12 +4,11 @@
 Application::Application(int argc, char* argv[])
 	: m_engine(this), m_actor("test")
 {
-	m_engine.addObject(m_actor);
+	m_engine.addObject(&m_actor);
 }
 
 Application::~Application()
 {
-	
 }
 
 void Application::run()

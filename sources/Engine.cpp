@@ -252,14 +252,14 @@ void Engine::repaint()
 	SDL_FillRect(m_surface, &blank, 0);
 
 	for (it = m_objects.begin(); it != m_objects.end(); it++) {
-		(*it).update(2);
-		(*it).paint(m_surface);
+		(*it)->update(2);
+		(*it)->paint(m_surface);
 	}
 
 	SDL_Flip(m_surface);
 }
 
-void Engine::addObject(const Object& object)
+void Engine::addObject(Object* object)
 {
 	m_objects.push_back(object);
 }

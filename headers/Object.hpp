@@ -1,8 +1,7 @@
 #pragma once
 #include <stdint.h>
+#include <SDL/SDL.h>
 #include "Babble.hpp"
-
-struct SDL_Surface;
 
 class Object
 {

@@ -19,7 +19,7 @@ enum EngineState
 class Engine
 {
 public:
-	typedef std::vector<Object> ObjectVector;
+	typedef std::vector<Object*> ObjectVector;
 
 	Engine(EventHandler* receiver);
 	~Engine();
@@ -30,7 +30,7 @@ public:
 
 	void onEvent(SDL_Event* event);
 
-	void addObject(const Object& object);
+	void addObject(Object* object);
 
 private:
 	void createSurface();
