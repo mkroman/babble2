@@ -26,7 +26,7 @@ public:
 
 	void run();
 	void stop();
-	void repaint();
+	void repaint(uint32_t delta);
 
 	void onEvent(SDL_Event* event);
 
@@ -34,11 +34,6 @@ public:
 
 private:
 	void createSurface();
-
-	/*!
-	 * Holds the tick time of the latest frame.
-	 */
-	uint32_t m_tick;
 
 	/*!
 	 * Holds the tick time of when the engine initially started.

@@ -1,4 +1,5 @@
 #include "Timer.hpp"
+#include "Object.hpp"
 
 Timer::Timer()
 	 : m_active(false)
@@ -11,6 +12,8 @@ Timer::~Timer()
 
 int Timer::ticks()
 {
+	// _debug("sdl: %d timer: %d = %d", SDL_GetTicks(), m_time, (SDL_GetTicks() - m_time));
+
 	return (SDL_GetTicks() - m_time);
 }
 

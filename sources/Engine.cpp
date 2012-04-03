@@ -36,14 +36,19 @@ void Engine::createSurface()
 
 void Engine::run()
 {
-	Timer fps;
+	int fps_ticks;
 	SDL_Event event;
+	uint32_t delta_time, current_tick, last_tick;
+
+	fps_ticks = (1000 / kGameFPS);
+	delta_time = 0;
 
 	if (m_state != EngineStarted) {
 		_debug("Starting engine");
 
 		m_start = SDL_GetTicks();
 		m_state = EngineStarted;
+		last_tick = SDL_GetTicks();
 	}
 	else {
 		return;
@@ -51,17 +56,20 @@ void Engine::run()
 
 	while (m_state == EngineStarted)
 	{
-		fps.start();
-
 		while (SDL_PollEvent(&event)) {
 			onEvent(&event);
 		}
 
-		repaint();
+		current_tick = SDL_GetTicks();
+		delta_time = (current_tick - last_tick);
+		last_tick  = current_tick;
 
-		if (fps.ticks() < 1000 / kGameFPS) {
-			SDL_Delay((1000 / kGameFPS) - fps.ticks());
+		repaint(delta_time);
+
+		if (delta_time < fps_ticks) {
+			SDL_Delay(fps_ticks - delta_time);
 		}
+
 	}
 }
 
@@ -243,20 +251,19 @@ void Engine::stop()
 	_debug("Stopping engine");
 }
 
-void Engine::repaint()
+void Engine::repaint(uint32_t delta_time)
 {
 	ObjectVector::iterator it;
-
-	// Clean the surface.
-	SDL_Rect blank = { 0, 0, m_surface->w, m_surface->h };
-	SDL_FillRect(m_surface, &blank, 0);
+	SDL_FillRect(m_surface, &m_surface->clip_rect, SDL_MapRGB(m_surface->format, 0xED, 0xED, 0xED));
 
 	for (it = m_objects.begin(); it != m_objects.end(); it++) {
-		(*it)->update(2);
+		(*it)->update(delta_time);
 		(*it)->paint(m_surface);
 	}
 
-	SDL_Flip(m_surface);
+	if (SDL_Flip(m_surface) == -1) {
+		_debug("surface flipping failed");
+	}
 }
 
 void Engine::addObject(Object* object)

@@ -7,6 +7,7 @@ set(BABBLE_SOURCES
 	sources/Babble.cpp
 	sources/Engine.cpp
 	sources/Object.cpp
+	sources/RigidObject.cpp
 	sources/Actor.cpp
 	sources/Application.cpp
 	sources/EventHandler.cpp
