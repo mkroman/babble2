@@ -27,3 +27,21 @@ void Application::onLeftButtonPress(int x, int y)
 {
 	m_actor.move(x, y);
 }
+
+void Application::onKeyPress(SDLKey symbol, SDLMod modifier, uint16_t unicode)
+{
+	switch (symbol)
+	{
+		case SDLK_q:
+		{
+			m_engine.stop();
+
+			break;
+		}
+
+		default:
+		{
+			
+		}
+	}
+}

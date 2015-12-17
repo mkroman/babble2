@@ -26,6 +26,8 @@ void RigidObject::move(float x, float y)
 	else {
 		m_velocity.y = -200;
 	}
+
+	_debug("position: %f,%f endpoint: %f,%f", m_position.x, m_position.y, m_endpoint.x, m_endpoint.y);
 }
 
 void RigidObject::update(uint32_t delta_time)

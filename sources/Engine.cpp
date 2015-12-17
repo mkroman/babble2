@@ -142,7 +142,6 @@ void Engine::onEvent(SDL_Event* event)
 
 		case SDL_MOUSEMOTION:
 		{
-			// (Event->motion.state&SDL_BUTTON(SDL_BUTTON_LEFT))!=0,(Event->motion.state&SDL_BUTTON(SDL_BUTTON_RIGHT))!=0,(Event->motion.state&SDL_BUTTON(SDL_BUTTON_MIDDLE))!=0
 			bool left_button_pressed   = (event->motion.state & SDL_BUTTON(SDL_BUTTON_LEFT))   != 0;
 			bool middle_button_pressed = (event->motion.state & SDL_BUTTON(SDL_BUTTON_MIDDLE)) != 0;
 			bool right_button_pressed  = (event->motion.state & SDL_BUTTON(SDL_BUTTON_RIGHT))  != 0;

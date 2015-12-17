@@ -13,6 +13,7 @@ public:
 	void run();
 	void onExit();
 	void onLeftButtonPress(int x, int y);
+	void onKeyPress(SDLKey symbol, SDLMod modifier, uint16_t unicode);
 
 private:
 	Actor m_actor;
